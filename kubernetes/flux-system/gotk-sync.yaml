@@ -9,7 +9,12 @@ spec:
   interval: 1m0s
   ref:
     branch: main
-  url: ssh://git@github.com/scuffe82/dolos
+  url: "https://github.com/scuffe82/dolos"
+  ignore: |
+    # exclude all
+    /*
+    # include kubernetes directory
+    !/kubernetes
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
