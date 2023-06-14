@@ -3,4 +3,8 @@ kind: Kustomization
 resources:
 - gotk-components.yaml
 - gotk-sync.yaml
-- cluster-configs-sync.yaml
+- environment-sync/cluster-configs-sync.yaml
+- environment-sync/media-sync.yaml
+- environment-sync/networking-sync.yaml
+- environment-sync/security-sync.yaml
+- environment-sync/storage-sync.yaml
