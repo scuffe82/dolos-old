@@ -8,3 +8,5 @@ resources:
 - environment-sync/networking-sync.yaml
 - environment-sync/security-sync.yaml
 - environment-sync/storage-sync.yaml
+- environment-sync/kube-system-sync.yaml
+- environment-sync/monitoring-sync.yaml
