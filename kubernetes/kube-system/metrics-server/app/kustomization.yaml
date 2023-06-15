@@ -5,7 +5,7 @@ namespace: kube-system
 resources:
   - ./helmrelease.yaml
 configMapGenerator:
-  - name: authentik-values
+  - name: metrics-server-values
     files:
       - values.yaml=values.yaml
 configurations:
