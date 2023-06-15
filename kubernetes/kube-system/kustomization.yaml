@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - metrics-server/deployment.yaml
-  - reloader/deployment.yaml
+  #- reloader/deployment.yaml
