@@ -23,10 +23,6 @@ spec:
       retries: 3
   uninstall:
     keepHistory: false
-    metrics:
-      enabled: true
-    serviceMonitor:
-      enabled: true
   valuesFrom:
     - kind: ConfigMap
       name: metrics-server-values
