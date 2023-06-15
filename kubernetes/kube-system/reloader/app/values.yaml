@@ -215,9 +215,9 @@ reloader:
     targetLabels: []
 
   podMonitor:
-    enabled: true
+    enabled: false
     # Set the namespace the podMonitor should be deployed
-    namespace: kube-system
+    #namespace: kube-system
 
     # Fallback to the prometheus default unless specified
     # interval: 10s
