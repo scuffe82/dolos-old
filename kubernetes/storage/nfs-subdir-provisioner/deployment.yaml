@@ -20,7 +20,6 @@ kind: Kustomization
 metadata:
   name: nfs-subdir-provisioner-classes
   namespace: flux-system
-  kustomize.toolkit.fluxcd.io/substitute: disabled
 spec:
   dependsOn:
     - name: nfs-subdir-provisioner
