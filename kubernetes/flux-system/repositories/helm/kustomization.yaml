@@ -13,5 +13,6 @@ resources:
   - ./metrics-server.yaml
   - ./nfs-subdir.yaml
   - ./stakater.yaml
+  - ./synology-csi.yaml
   - ./traefik.yaml
   - ./weave-gitops.yaml

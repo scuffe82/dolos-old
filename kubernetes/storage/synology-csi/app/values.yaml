@@ -1,0 +1,13 @@
+---
+clientInfoSecret:
+  name: synology-csi-client-info
+  create: false
+storageClasses:
+  delete:
+    parameters:
+      fsType: ext4
+    reclaimPolicy: Delete
+  retain:
+    parameters:
+      fsType: ext4
+    reclaimPolicy: Retain
