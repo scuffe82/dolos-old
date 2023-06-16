@@ -4,11 +4,11 @@ kind: Kustomization
 namespace: security
 resources:
   - ./helmrelease.yaml
-  - ./prometheusrule.yaml
+  #- ./prometheusrule.yaml
 configMapGenerator:
-  - name: cert-manager-dashboard
-    files:
-      - cert-manager-dashboard.json=https://raw.githubusercontent.com/monitoring-mixins/website/master/assets/cert-manager/dashboards/cert-manager.json
+  #- name: cert-manager-dashboard
+  #  files:
+  #    - cert-manager-dashboard.json=https://raw.githubusercontent.com/monitoring-mixins/website/master/assets/cert-manager/dashboards/cert-manager.json
   - name: cert-manager-values
     files:
       - values.yaml=values.yaml
