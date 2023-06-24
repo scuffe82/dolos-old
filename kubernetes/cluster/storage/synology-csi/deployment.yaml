@@ -7,7 +7,7 @@ metadata:
 spec:
   dependsOn:
     - name: dolos-cluster
-  path: ./kubernetes/storage/synology-csi/config
+  path: ./kubernetes/cluster/storage/synology-csi/config
   prune: true
   sourceRef:
     kind: GitRepository
@@ -35,7 +35,7 @@ metadata:
 spec:
   dependsOn:
     - name: synology-csi-config
-  path: ./kubernetes/storage/synology-csi/app
+  path: ./kubernetes/cluster/storage/synology-csi/app
   prune: true
   sourceRef:
     kind: GitRepository
