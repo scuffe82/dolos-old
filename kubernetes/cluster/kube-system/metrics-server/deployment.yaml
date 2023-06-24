@@ -5,7 +5,7 @@ metadata:
   name: metrics-server
   namespace: flux-system
 spec:
-  path: ./kubernetes/kube-system/metrics-server/app
+  path: ./kubernetes/cluster/kube-system/metrics-server/app
   prune: true
   sourceRef:
     kind: GitRepository
