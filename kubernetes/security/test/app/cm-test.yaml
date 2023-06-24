@@ -6,3 +6,4 @@ metadata:
 data:
   staticvariable: "true"
   dynamicvariable: "${METALLB_LB_RANGE}"
+  singletest: "${singlesubtest}"
