@@ -111,6 +111,9 @@ serviceAccount:
   # name: ""
   # Optional additional annotations to add to the controller's ServiceAccount
   # annotations: {}
+  annotations:
+    test-cm: ${TIMEZONE}
+    test-sec: ${SECRET_DOMAIN}
   # Automount API credentials for a Service Account.
   # Optional additional labels to add to the controller's ServiceAccount
   # labels: {}

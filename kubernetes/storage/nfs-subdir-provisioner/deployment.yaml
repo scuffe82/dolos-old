@@ -10,24 +10,29 @@ spec:
   sourceRef:
     kind: GitRepository
     name: dolos
+  healthChecks:
+    - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      name: nfs-subdir-provisioner
+      namespace: storage
   wait: true
   interval: 30m
   retryInterval: 1m
   timeout: 3m
----
-apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
-kind: Kustomization
-metadata:
-  name: nfs-subdir-provisioner-classes
-  namespace: flux-system
-spec:
-  dependsOn:
-    - name: nfs-subdir-provisioner
-  path: ./kubernetes/storage/nfs-subdir-provisioner/storage-classes
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: dolos
-  interval: 30m
-  retryInterval: 1m
-  timeout: 3m
+#---
+#apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+#kind: Kustomization
+#metadata:
+#  name: nfs-subdir-provisioner-classes
+#  namespace: flux-system
+#spec:
+#  dependsOn:
+#    - name: nfs-subdir-provisioner
+#  path: ./kubernetes/storage/nfs-subdir-provisioner/storage-classes
+#  prune: true
+#  sourceRef:
+#    kind: GitRepository
+#    name: dolos
+#  interval: 30m
+#  retryInterval: 1m
+#  timeout: 3m
