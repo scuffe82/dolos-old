@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - nfs-subdir-provisioner/deployment.yaml
-  - synology-csi/deployment.yaml
+  #- synology-csi/deployment.yaml
