@@ -4,5 +4,5 @@ metadata:
   name: sec-test
   namespace: default
 data:
-  staticsecret: c3RhdGljc2VjcmV0Cg==
+  staticsecret: dmFsdWUtMg0KDQo=
   dynamicsecret: "${SECRET_CLOUDFLARE_EMAIL}"
