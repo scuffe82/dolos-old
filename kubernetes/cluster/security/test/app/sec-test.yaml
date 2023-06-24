@@ -5,4 +5,4 @@ metadata:
   namespace: default
 type: Opaque
 stringData:
-  dynamicsecret: ${SECRET_CLOUDFLARE_EMAIL}
+  dynamicsecret: "${SECRET_CLOUDFLARE_EMAIL}"
