@@ -5,6 +5,8 @@ metadata:
   name: cert-manager
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: dolos-cluster
   path: ./kubernetes/cluster/security/cert-manager/app
   prune: true
   sourceRef:
