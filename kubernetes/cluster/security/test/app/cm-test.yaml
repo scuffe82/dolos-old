@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: cm-test
-  namespace: default
-data:
-  staticvariable: "true"
-  dynamicvariable: "${METALLB_LB_RANGE}"

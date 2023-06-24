@@ -1,8 +1,0 @@
-apiVersion: v1
-kind: Secret
-metadata:
-  name: sec-test
-  namespace: default
-type: Opaque
-stringData:
-  dynamicsecret: "${SECRET_CLOUDFLARE_EMAIL}"
