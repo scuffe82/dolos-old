@@ -22,4 +22,4 @@ spec:
       - kind: Secret
         name: cluster-secrets
     substitute:
-      singlesubtest: testing
+      singlesubtest: "testing"
