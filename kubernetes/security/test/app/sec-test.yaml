@@ -5,4 +5,4 @@ metadata:
   namespace: default
 data:
   .secret-file: dmFsdWUtMg0KDQo=
-  dynamicsecret: "${SECRET_CLOUDFLARE_EMAIL}"
+  #dynamicsecret: "${SECRET_CLOUDFLARE_EMAIL}"
