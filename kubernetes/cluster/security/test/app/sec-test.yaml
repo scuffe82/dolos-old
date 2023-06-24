@@ -3,6 +3,5 @@ kind: Secret
 metadata:
   name: sec-test
   namespace: default
-data:
-  .secret-file: dmFsdWUtMg0KDQo=
+stringdata:
   dynamicsecret: "${SECRET_CLOUDFLARE_EMAIL}"
