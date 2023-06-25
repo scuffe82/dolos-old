@@ -83,9 +83,9 @@ spec:
         mountPath: /plex-dev-temp
         existingClaim: plex-dev-temp
 
-    resources:
-      requests:
-        cpu: 5m
-        memory: "2392M"
-      limits:
-        memory: "2392M"
+    #resources:
+    #  requests:
+    #    cpu: 5m
+    #    memory: "2392M"
+    #  limits:
+    #    memory: "2392M"
