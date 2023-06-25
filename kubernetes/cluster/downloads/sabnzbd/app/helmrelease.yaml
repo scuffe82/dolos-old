@@ -73,10 +73,12 @@ spec:
         mountPath: /postprocess
         existingClaim: postprocess
       config:
-        enabled: false
+        enabled: true
         type: pvc
         mountPath: /config
-        existingClaim: sabnzbd-config
+        storageClass: synology-csi-retain
+        retain: true
+        size: 10Gi
       plex-dev-temp:        
         enabled: true
         type: pvc
