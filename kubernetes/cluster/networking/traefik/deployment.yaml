@@ -24,7 +24,6 @@ metadata:
   namespace: flux-system
 spec:
   dependsOn:
-    - name: traefik-certificates
     - name: metallb-config
   path: ./kubernetes/cluster/networking/traefik/app
   prune: true
