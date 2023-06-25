@@ -1,0 +1,41 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: traefik-certificates
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: cert-manager-issuers
+  path: ./kubernetes/cluster/networking/traefik/certificates
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: dolos
+  wait: true
+  interval: 30m
+  retryInterval: 1m
+  timeout: 3m
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: traefik
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: traefik-certificates
+    - name: metallb-config
+  path: ./kubernetes/cluster/networking/traefik/app
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: dolos
+  healthChecks:
+    - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      name: traefik
+      namespace: networking
+  interval: 30m
+  retryInterval: 1m
+  timeout: 3m
