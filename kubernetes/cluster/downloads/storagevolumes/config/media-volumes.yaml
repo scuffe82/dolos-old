@@ -18,7 +18,6 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: tv-downloads
-  namespace: downloads
 spec:
   accessModes:
     - ReadWriteMany
@@ -49,7 +48,6 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: movies-downloads
-  namespace: downloads
 spec:
   accessModes:
     - ReadWriteMany
@@ -80,7 +78,6 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: postprocess
-  namespace: downloads
 spec:
   accessModes:
     - ReadWriteMany
@@ -111,7 +108,6 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: privatetemp
-  namespace: downloads
 spec:
   accessModes:
     - ReadWriteOnce
@@ -142,7 +138,6 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: downloads
-  namespace: downloads
 spec:
   accessModes:
     - ReadWriteMany
