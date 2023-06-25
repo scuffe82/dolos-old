@@ -15,6 +15,63 @@ spec:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
-  valuesFrom:
-    - kind: ConfigMap
-      name: sabnzbd-values
+
+  values:
+    controller:
+      type: statefulset
+      annotations:
+        reloader.stakater.com/auto: "true"
+
+    image:
+      repository: ghcr.io/onedr0p/sabnzbd
+      tag: 4.0.2@sha256:0e62d048aa0baba4bd7d2f897a2d3618bbd2ffe8616ef728bf751af999c78537
+
+    podSecurityContext:
+      runAsUser: 568
+      runAsGroup: 568
+      fsGroup: 568
+      fsGroupChangePolicy: "OnRootMismatch"
+      supplementalGroups:
+        - 65539
+
+    env:
+      SABNZBD__PORT: &port 8080
+
+    service:
+      main:
+        ports:
+          http:
+            port: *port
+
+    ingress:
+      main:
+        enabled: true
+        ingressClassName: "traefik"
+        annotations:
+          traefik.ingress.kubernetes.io/router.entrypoints: web
+        hosts:
+          - host: "sabnzbd.spenceops.com"
+            paths:
+              - path: /
+        
+    #persistence:
+    #  media:
+    #    enabled: true
+    #    type: nfs
+    #    server: "nas.bjw-s.tech"
+    #    path: /volume1/Media
+    #    mountPath: /data/nas-media
+
+    resources:
+      requests:
+        cpu: 5m
+        memory: "2392M"
+      limits:
+        memory: "2392M"
+
+    volumeClaimTemplates:
+      - name: config
+        mountPath: /config
+        accessMode: ReadWriteOnce
+        size: 1Gi
+        storageClass: nfs-retain
