@@ -2,13 +2,12 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
-  name: sabnzbd
+  name: downloads-storagevolumes
   namespace: flux-system
 spec:
   dependsOn:
     - name: dolos-cluster
-    - name: downloads-storagevolumes
-  path: ./kubernetes/cluster/downloads/sabnzbd/app
+  path: ./kubernetes/cluster/downloads/storagevolumes/config
   prune: true
   sourceRef:
     kind: GitRepository

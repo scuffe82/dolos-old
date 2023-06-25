@@ -1,0 +1,151 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: tv-downloads
+  labels:
+    type: tv-downloads
+spec:
+  capacity:
+    storage: 65Ti
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: 10.0.0.11
+    path: "/volume1/media/tv"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: tv-downloads
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 65Ti
+  selector:
+    matchLabels:
+      type: tv-downloads
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: movies-downloads
+  labels:
+    type: movies-downloads
+spec:
+  capacity:
+    storage: 65Ti
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: 10.0.0.11
+    path: "/volume1/media/movies"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: movies-downloads
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 65Ti
+  selector:
+    matchLabels:
+      type: movies-downloads
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: postprocess
+  labels:
+    type: postprocess
+spec:
+  capacity:
+    storage: 65Ti
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: 10.0.0.11
+    path: "/volume1/media/postprocess"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: postprocess
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 65Ti
+  selector:
+    matchLabels:
+      type: postprocess
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: privatetemp
+  labels:
+    type: privatetemp
+spec:
+  capacity:
+    storage: 65Ti
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    server: 10.0.0.11
+    path: "/volume1/private/temp"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: privatetemp
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 65Ti
+  selector:
+    matchLabels:
+      type: privatetemp
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: downloads
+  labels:
+    type: downloads
+spec:
+  capacity:
+    storage: 65Ti
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: 10.0.0.11
+    path: "/volume1/temp/downloads"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: downloads
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 65Ti
+  selector:
+    matchLabels:
+      type: downloads
+---

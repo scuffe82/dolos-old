@@ -61,13 +61,23 @@ spec:
             paths:
               - path: /
         
-    #persistence:
-    #  media:
-    #    enabled: true
-    #    type: nfs
-    #    server: "nas.bjw-s.tech"
-    #    path: /volume1/Media
-    #    mountPath: /data/nas-media
+    persistence:
+      downloads:
+        enabled: true
+        type: pvc
+        mountPath: /downloads
+        existingClaim: downloads
+      postprocess:
+        enabled: true
+        type: pvc
+        mountPath: /postprocess
+        existingClaim: postprocess
+      config:
+        enabled: true
+        type: pvc
+        mountPath: /config
+        existingClaim: sabnzbd-config
+      
 
     resources:
       requests:
@@ -75,10 +85,3 @@ spec:
         memory: "2392M"
       limits:
         memory: "2392M"
-
-    volumeClaimTemplates:
-      - name: config
-        mountPath: /config
-        accessMode: ReadWriteOnce
-        size: 1Gi
-        storageClass: nfs-retain
