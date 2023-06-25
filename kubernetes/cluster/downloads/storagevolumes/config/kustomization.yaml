@@ -4,4 +4,4 @@ kind: Kustomization
 namespace: storage
 resources:
   - media-volumes.yaml
-  - app-volumes.yaml
+  #- app-volumes.yaml
