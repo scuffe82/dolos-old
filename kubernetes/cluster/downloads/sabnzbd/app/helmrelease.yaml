@@ -73,7 +73,7 @@ spec:
         mountPath: /postprocess
         existingClaim: postprocess
       config:
-        enabled: true
+        enabled: false
         type: pvc
         mountPath: /config
         existingClaim: sabnzbd-config
