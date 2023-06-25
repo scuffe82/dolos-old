@@ -3,25 +3,18 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: sabnzbd
-  namespace: media
+  namespace: downloads
 spec:
-  interval: 5m
-  releaseName: sabnzbd
+  interval: 30m
   chart:
     spec:
       chart: app-template
-      reconcileStrategy: ChartVersion
+      version: 1.5.1
+      interval: 30m
       sourceRef:
         kind: HelmRepository
         name: bjw-s
         namespace: flux-system
-  install:
-    createNamespace: false
-    remediation:
-      retries: 3
-  upgrade:
-    remediation:
-      retries: 3
   valuesFrom:
     - kind: ConfigMap
       name: sabnzbd-values

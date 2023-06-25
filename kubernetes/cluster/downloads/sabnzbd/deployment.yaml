@@ -7,7 +7,7 @@ metadata:
 spec:
   dependsOn:
     - name: dolos-cluster
-  path: ./kubernetes/cluster/media/sabnzbd/app
+  path: ./kubernetes/cluster/downloads/sabnzbd/app
   prune: true
   sourceRef:
     kind: GitRepository
