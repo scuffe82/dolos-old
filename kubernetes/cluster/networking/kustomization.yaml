@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - metallb/deployment.yaml
-  #- traefik/deployment.yaml
+  - traefik/deployment.yaml
