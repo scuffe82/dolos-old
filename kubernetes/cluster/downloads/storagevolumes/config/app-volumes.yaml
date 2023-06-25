@@ -17,20 +17,15 @@ spec:
      fsType: 'ext4'
 ---
 apiVersion: v1
-kind: PersistentVolume
+kind: PersistentVolumeClaim
 metadata:
   name: sabnzbd-config
-  namespace: downloads
-  labels:
-    type: sabnzbd-config
 spec:
-  capacity:
-    storage: 10Gi
   accessModes:
     - ReadWriteOnce
-  iscsi:
-     targetPortal: 10.0.0.11:3260
-     iqn: iqn.2000-01.com.synology:crypteia.default-target.9ae28f60be2
-     lun: 45
-     fsType: 'ext4'
----
+  resources:
+    requests:
+      storage: 10Gi
+  selector:
+    matchLabels:
+      type: sabnzbd-config
