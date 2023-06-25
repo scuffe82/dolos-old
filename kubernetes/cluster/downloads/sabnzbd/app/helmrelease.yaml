@@ -27,12 +27,12 @@ spec:
       tag: 4.0.2@sha256:0e62d048aa0baba4bd7d2f897a2d3618bbd2ffe8616ef728bf751af999c78537
 
     podSecurityContext:
-      runAsUser: 568
-      runAsGroup: 568
-      fsGroup: 568
+      runAsUser: 1027
+      runAsGroup: 1027
+      fsGroup: 1027
       fsGroupChangePolicy: "OnRootMismatch"
       supplementalGroups:
-        - 65539
+        - 65536
 
     env:
       SABNZBD__PORT: &port 8080
@@ -77,7 +77,11 @@ spec:
         type: pvc
         mountPath: /config
         existingClaim: sabnzbd-config
-      
+      plex-dev-temp:        
+        enabled: true
+        type: pvc
+        mountPath: /plex-dev-temp
+        existingClaim: plex-dev-temp
 
     resources:
       requests:
