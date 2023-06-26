@@ -2,6 +2,8 @@
 
 :flux-system:
 -------------
+webhook
+weave gitops
 
 :downloads:
 -----------
@@ -28,6 +30,7 @@ gaps
 kube-prometheus
 influx 1
 influx 2
+kube-dashboard
 
 :networking:
 ------------
