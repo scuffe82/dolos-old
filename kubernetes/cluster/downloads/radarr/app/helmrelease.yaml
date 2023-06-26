@@ -36,7 +36,7 @@ spec:
     env:
       RADARR__INSTANCE_NAME: Radarr
       RADARR__PORT: &port 7878
-      RADARR__APPLICATION_URL: "https://radarr.spenceops.com"
+      RADARR__APPLICATION_URL: "https://radarr-new.spenceops.com"
       
     service:
       main:
@@ -56,16 +56,17 @@ spec:
               - path: /
         
     persistence:
-      config:
+      downloads:
         enabled: true
-        existingClaim: radarr-config
-
-      media:
+        type: pvc
+        mountPath: /downloads
+        existingClaim: downloads
+      postprocess:
         enabled: true
-        type: nfs
-        server: "nas.bjw-s.tech"
-        path: /volume1/Media
-        mountPath: /data/nas-media
+        type: pvc
+        mountPath: /postprocess
+        existingClaim: postprocess
+      
 
     #resources:
     #  requests:
