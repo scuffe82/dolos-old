@@ -1,0 +1,94 @@
+::DEPLOY::
+
+:flux-system:
+-------------
+
+:downloads:
+-----------
+sabnzbd
+sonarr
+radarr
+overseerr
+nzbhydra2
+vpn/torrent client TBD
+
+:kube-system:
+-------------
+
+:media:
+-------
+plex
+plex-dev
+tautulli
+gaps
+
+
+:monitoring:
+------------
+kube-prometheus
+influx 1
+influx 2
+
+:networking:
+------------
+external-dns
+cloudflare ddns
+
+:security:
+----------
+authentik
+
+:storage:
+---------
+local-path-provider
+
+:home automation:
+-----------------
+homeassistant
+zigbee 
+zwave
+
+
+::CONFIGURE::
+
+:downloads:
+-----------
+
+:flux-system:
+-------------
+
+:kube-system:
+-------------
+
+:media:
+-------
+
+:monitoring:
+------------
+
+:networking:
+------------
+
+:security:
+----------
+
+:storage:
+---------
+
+
+
+
+
+
+::TODOs::
+
+CRD:
+cert-manager
+kube-prometheus
+
+General:
+Check and add dependsOn to everything
+depends on dolos-cluster for namespaces
+depends on storage
+depends on networking
+depends on monitoring, kube-prometheus
