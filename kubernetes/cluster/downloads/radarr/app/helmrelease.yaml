@@ -66,6 +66,13 @@ spec:
         type: pvc
         mountPath: /postprocess
         existingClaim: postprocess
+
+    volumeClaimTemplates:
+      - name: config
+        mountPath: /config
+        accessMode: ReadWriteOnce
+        size: 10Gi
+        storageClass: synology-csi-retain
       
 
     #resources:
