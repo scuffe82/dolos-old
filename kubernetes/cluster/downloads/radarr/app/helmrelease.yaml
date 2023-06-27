@@ -51,7 +51,7 @@ spec:
         annotations:
           traefik.ingress.kubernetes.io/router.entrypoints: web
         hosts:
-          - host: "radarr.spenceops.com"
+          - host: "dolos-radarr.spenceops.com"
             paths:
               - path: /
         
@@ -66,15 +66,13 @@ spec:
         type: pvc
         mountPath: /postprocess
         existingClaim: postprocess
-
-    volumeClaimTemplates:
-      - name: config
+      config:
+        enabled: true
         mountPath: /config
         accessMode: ReadWriteOnce
         size: 10Gi
         storageClass: synology-csi-retain
-        retain: true
-      
+        retain: true   
 
     #resources:
     #  requests:
