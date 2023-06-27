@@ -94,7 +94,7 @@ kind: PersistentVolume
 metadata:
   name: tv
   labels:
-    type: downloads
+    type: tv
 spec:
   capacity:
     storage: 65Ti
