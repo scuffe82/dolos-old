@@ -2,9 +2,9 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: plex-dev
+  name: media-plex-dev
   labels:
-    type: plex-dev
+    type: media-plex-dev
 spec:
   capacity:
     storage: 65Ti
@@ -17,7 +17,7 @@ spec:
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: plex-dev
+  name: media-plex-dev
 spec:
   accessModes:
     - ReadWriteOnce
@@ -27,14 +27,14 @@ spec:
       storage: 65Ti
   selector:
     matchLabels:
-      type: plex-dev
+      type: media-plex-dev
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: tv
+  name: media-tv
   labels:
-    type: tv
+    type: media-tv
 spec:
   capacity:
     storage: 65Ti
@@ -47,7 +47,7 @@ spec:
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: tv
+  name: media-tv
 spec:
   accessModes:
     - ReadWriteMany
@@ -57,14 +57,14 @@ spec:
       storage: 65Ti
   selector:
     matchLabels:
-      type: tv
+      type: media-tv
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: movies
+  name: media-movies
   labels:
-    type: movies
+    type: media-movies
 spec:
   capacity:
     storage: 65Ti
@@ -77,7 +77,7 @@ spec:
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: movies
+  name: media-movies
 spec:
   accessModes:
     - ReadWriteMany
@@ -87,5 +87,5 @@ spec:
       storage: 65Ti
   selector:
     matchLabels:
-      type: movies
+      type: media-movies
 ---
