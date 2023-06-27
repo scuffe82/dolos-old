@@ -34,31 +34,31 @@ spec:
           http:
             port: 32400
 
-    ingress:
-      main:
-        enabled: false
-        annotations:
-          external-dns.alpha.kubernetes.io/public: "true"
-          external-dns.alpha.kubernetes.io/target: ingress.bjw-s.dev
-          traefik.ingress.kubernetes.io/router.entrypoints: web
-        ingressClassName: traefik
-        hosts:
-          - host: plex.spenceops.com
-            paths:
-              - path: /
-                pathType: Prefix
+#    ingress:
+#      main:
+#        enabled: false
+#        annotations:
+#          external-dns.alpha.kubernetes.io/public: "true"
+#          external-dns.alpha.kubernetes.io/target: dolos-traefik.spenceops.com
+#          traefik.ingress.kubernetes.io/router.entrypoints: web
+#        ingressClassName: traefik
+#        hosts:
+#          - host: plex.spenceops.com
+#            paths:
+#              - path: /
+#                pathType: Prefix
 
     persistence:
       tv:
         enabled: true
         type: pvc
         mountPath: /tv
-        existingClaim: tv
+        existingClaim: media-tv
       movies:
         enabled: true
         type: pvc
         mountPath: /movies
-        existingClaim: movies  
+        existingClaim: media-movies  
       transcode:
         enabled: true
         type: emptyDir
