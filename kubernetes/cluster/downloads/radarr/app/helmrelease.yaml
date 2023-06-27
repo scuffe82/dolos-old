@@ -59,12 +59,12 @@ spec:
         enabled: true
         type: pvc
         mountPath: /postprocess
-        existingClaim: postprocess
+        existingClaim: downloads-postprocess
       movies:
         enabled: true
         type: pvc
         mountPath: /movies
-        existingClaim: movies
+        existingClaim: downloads-movies
       config:
         enabled: true
         mountPath: /config

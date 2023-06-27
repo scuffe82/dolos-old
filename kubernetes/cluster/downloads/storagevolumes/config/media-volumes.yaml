@@ -2,9 +2,9 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: postprocess
+  name: downloads-postprocess
   labels:
-    type: postprocess
+    type: downloads-postprocess
 spec:
   capacity:
     storage: 65Ti
@@ -17,7 +17,7 @@ spec:
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: postprocess
+  name: downloads-postprocess
 spec:
   accessModes:
     - ReadWriteMany
@@ -27,14 +27,14 @@ spec:
       storage: 65Ti
   selector:
     matchLabels:
-      type: postprocess
+      type: downloads-postprocess
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: plex-dev
+  name: downloads-plex-dev
   labels:
-    type: plex-dev
+    type: downloads-plex-dev
 spec:
   capacity:
     storage: 65Ti
@@ -47,7 +47,7 @@ spec:
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: plex-dev
+  name: downloads-plex-dev
 spec:
   accessModes:
     - ReadWriteOnce
@@ -57,14 +57,14 @@ spec:
       storage: 65Ti
   selector:
     matchLabels:
-      type: plex-dev
+      type: downloads-plex-dev
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: downloads
+  name: downloads-downloads
   labels:
-    type: downloads
+    type: downloads-downloads
 spec:
   capacity:
     storage: 65Ti
@@ -77,7 +77,7 @@ spec:
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: downloads
+  name: downloads-downloads
 spec:
   accessModes:
     - ReadWriteMany
@@ -87,14 +87,14 @@ spec:
       storage: 65Ti
   selector:
     matchLabels:
-      type: downloads
+      type: downloads-downloads
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: tv
+  name: downloads-tv
   labels:
-    type: tv
+    type: downloads-tv
 spec:
   capacity:
     storage: 65Ti
@@ -107,7 +107,7 @@ spec:
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: tv
+  name: downloads-tv
 spec:
   accessModes:
     - ReadWriteMany
@@ -117,14 +117,14 @@ spec:
       storage: 65Ti
   selector:
     matchLabels:
-      type: tv
+      type: downloads-tv
 ---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: movies
+  name: downloads-movies
   labels:
-    type: movies
+    type: downloads-movies
 spec:
   capacity:
     storage: 65Ti
@@ -137,7 +137,7 @@ spec:
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: movies
+  name: downloads-movies
 spec:
   accessModes:
     - ReadWriteMany
@@ -147,5 +147,5 @@ spec:
       storage: 65Ti
   selector:
     matchLabels:
-      type: movies
+      type: downloads-movies
 ---
