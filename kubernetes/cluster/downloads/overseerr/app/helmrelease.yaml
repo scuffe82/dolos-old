@@ -57,7 +57,7 @@ spec:
     persistence:
       config:
         enabled: true
-        mountPath: /config
+        mountPath: /app/config
         accessMode: ReadWriteOnce
         size: 10Gi
         storageClass: synology-csi-retain
