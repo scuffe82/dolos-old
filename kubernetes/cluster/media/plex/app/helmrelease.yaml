@@ -1,0 +1,94 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: plex
+  namespace: media
+spec:
+  chart:
+    spec:
+      chart: app-template
+      version: 1.5.1
+      interval: 30m
+      sourceRef:
+        kind: HelmRepository
+        name: bjw-s
+        namespace: flux-system
+  interval: 30m
+  values:
+    controller:
+      type: statefulset
+      annotations:
+        reloader.stakater.com/auto: "true"
+
+    image:
+      repository: ghcr.io/onedr0p/plex
+      tag: 1.32.4.7195-7c8f9d3b6@sha256:39c4ad71d92790d54b2d14be5fdabca940591ab2b9f8291d02653cd4f80d9d4f
+
+    service:
+      main:
+        type: LoadBalancer
+        externalTrafficPolicy: Cluster
+        loadBalancerIP: 10.0.1.200
+        ports:
+          http:
+            port: 32400
+
+    ingress:
+      main:
+        enabled: false
+        annotations:
+          external-dns.alpha.kubernetes.io/public: "true"
+          external-dns.alpha.kubernetes.io/target: ingress.bjw-s.dev
+          traefik.ingress.kubernetes.io/router.entrypoints: web
+        ingressClassName: traefik
+        hosts:
+          - host: plex.spenceops.com
+            paths:
+              - path: /
+                pathType: Prefix
+
+    persistence:
+      tv:
+        enabled: true
+        type: pvc
+        mountPath: /tv
+        existingClaim: tv
+      movies:
+        enabled: true
+        type: pvc
+        mountPath: /movies
+        existingClaim: movies  
+      transcode:
+        enabled: true
+        type: emptyDir
+
+    podSecurityContext:
+      runAsUser: 1027
+      runAsGroup: 1027
+      fsGroup: 1027
+      fsGroupChangePolicy: "OnRootMismatch"
+      supplementalGroups:
+        - 44
+        - 109
+        - 65536
+
+#    nodeSelector:
+#      intel.feature.node.kubernetes.io/gpu: "true"
+
+#    resources:
+#      requests:
+#        cpu: 100m
+#        gpu.intel.com/i915: 1
+#        memory: 9248M
+#      limits:
+#        gpu.intel.com/i915: 1
+#        memory: 9248M
+
+    volumeClaimTemplates:
+      - name: config
+        mountPath: /config
+        accessMode: ReadWriteOnce
+        size: 200Gi
+        storageClass: synology-csi-retain
+        retain: true
