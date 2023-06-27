@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: radarr
+  name: sonarr
   namespace: downloads
 spec:
   interval: 30m
@@ -22,8 +22,8 @@ spec:
         reloader.stakater.com/auto: "true"
 
     image:
-      repository: ghcr.io/onedr0p/radarr-develop
-      tag: 4.6.3.7516@sha256:798fe8b616da785edcb84cc871111e63c9227b970dbd33b4ac876faba4c058b8
+      repository: ghcr.io/onedr0p/sonarr-develop
+      tag: 4.0.0.548@sha256:18f1d44254def02632847627d119dc10cb94525fda359f837d4c656a980a3cf2
 
     podSecurityContext:
       runAsUser: 1027
@@ -34,27 +34,27 @@ spec:
         - 65536
 
     env:
-      RADARR__INSTANCE_NAME: Radarr
-      RADARR__PORT: &port 7878
-      
+      SONARR__INSTANCE_NAME: Sonarr
+      SONARR__PORT: &port 8989
+
     service:
       main:
         ports:
           http:
             port: *port
 
-    ingress:
+   ingress:
       main:
         enabled: true
         ingressClassName: "traefik"
         annotations:
           traefik.ingress.kubernetes.io/router.entrypoints: web
         hosts:
-          - host: "dolos-radarr.spenceops.com"
+          - host: "dolos-sonarr.spenceops.com"
             paths:
               - path: /
-        
-    persistence:
+
+   persistence:
       postprocess:
         enabled: true
         type: pvc
@@ -63,8 +63,8 @@ spec:
       movies:
         enabled: true
         type: pvc
-        mountPath: /movies
-        existingClaim: movies
+        mountPath: /tv
+        existingClaim: tv
       config:
         enabled: true
         mountPath: /config
@@ -73,9 +73,9 @@ spec:
         storageClass: synology-csi-retain
         retain: true   
 
-    #resources:
-    #  requests:
-    #    cpu: 14m
-    #    memory: 431M
-    #  limits:
-    #    memory: 431M
+#    resources:
+#      requests:
+#        cpu: 20m
+#        memory: 323M
+#      limits:
+#        memory: 323M

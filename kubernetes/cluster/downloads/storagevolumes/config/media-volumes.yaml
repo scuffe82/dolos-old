@@ -2,36 +2,6 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: media-downloads
-  labels:
-    type: media-downloads
-spec:
-  capacity:
-    storage: 65Ti
-  accessModes:
-    - ReadWriteMany
-  nfs:
-    server: 10.0.0.11
-    path: "/volume1/media/"
----
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: media-downloads
-spec:
-  accessModes:
-    - ReadWriteMany
-  volumeMode: Filesystem
-  resources:
-    requests:
-      storage: 65Ti
-  selector:
-    matchLabels:
-      type: media-downloads
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
   name: postprocess
   labels:
     type: postprocess
@@ -62,9 +32,9 @@ spec:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: plex-dev-temp
+  name: plex-dev
   labels:
-    type: plex-dev-temp
+    type: plex-dev
 spec:
   capacity:
     storage: 65Ti
@@ -72,12 +42,12 @@ spec:
     - ReadWriteOnce
   nfs:
     server: 10.0.0.11
-    path: "/volume1/plex-dev/temp"
+    path: "/volume1/plex-dev"
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: plex-dev-temp
+  name: plex-dev
 spec:
   accessModes:
     - ReadWriteOnce
@@ -87,7 +57,7 @@ spec:
       storage: 65Ti
   selector:
     matchLabels:
-      type: plex-dev-temp
+      type: plex-dev
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -118,4 +88,64 @@ spec:
   selector:
     matchLabels:
       type: downloads
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: tv
+  labels:
+    type: downloads
+spec:
+  capacity:
+    storage: 65Ti
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: 10.0.0.11
+    path: "/volume1/media/tv"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: tv
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 65Ti
+  selector:
+    matchLabels:
+      type: tv
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: movies
+  labels:
+    type: movies
+spec:
+  capacity:
+    storage: 65Ti
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: 10.0.0.11
+    path: "/volume1/media/movies"
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: movies
+spec:
+  accessModes:
+    - ReadWriteMany
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 65Ti
+  selector:
+    matchLabels:
+      type: movies
 ---
