@@ -77,6 +77,8 @@ spec:
         mountPath: /plex-dev-temp
         existingClaim: downloads-plex-dev
       config:
+        enabled: true
+        type: pvc
         mountPath: /config
         accessMode: ReadWriteOnce
         size: 10Gi
