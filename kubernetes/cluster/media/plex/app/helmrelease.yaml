@@ -17,7 +17,6 @@ spec:
   interval: 30m
   values:
     controller:
-      type: statefulset
       annotations:
         reloader.stakater.com/auto: "true"
 
@@ -62,6 +61,12 @@ spec:
       transcode:
         enabled: true
         type: emptyDir
+      config:
+        mountPath: /config
+        accessMode: ReadWriteOnce
+        size: 20Gi
+        storageClass: synology-csi-retain
+        retain: true
 
     podSecurityContext:
       runAsUser: 1027
@@ -84,11 +89,3 @@ spec:
 #      limits:
 #        gpu.intel.com/i915: 1
 #        memory: 9248M
-
-    volumeClaimTemplates:
-      - name: config
-        mountPath: /config
-        accessMode: ReadWriteOnce
-        size: 20Gi
-        storageClass: synology-csi-retain
-        retain: true

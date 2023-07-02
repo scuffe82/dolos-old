@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - storagevolumes/deployment.yaml
-  - sabnzbd/deployment.yaml
+ # - sabnzbd/deployment.yaml
   - radarr/deployment.yaml
   - sonarr/deployment.yaml
   - overseerr/deployment.yaml
