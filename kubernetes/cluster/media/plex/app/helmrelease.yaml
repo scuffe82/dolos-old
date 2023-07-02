@@ -62,9 +62,11 @@ spec:
         enabled: true
         type: emptyDir
       config:
+        enabled: true
+        type: pvc
         mountPath: /config
         accessMode: ReadWriteOnce
-        size: 20Gi
+        size: 250Gi
         storageClass: synology-csi-retain
         retain: true
 
