@@ -89,6 +89,6 @@ spec:
       - name: config
         mountPath: /config
         accessMode: ReadWriteOnce
-        size: 200Gi
+        size: 20Gi
         storageClass: synology-csi-retain
         retain: true
