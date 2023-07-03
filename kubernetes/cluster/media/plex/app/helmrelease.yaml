@@ -65,10 +65,7 @@ spec:
         enabled: true
         type: pvc
         mountPath: /config
-        accessMode: ReadWriteOnce
-        size: 250Gi
-        storageClass: synology-csi-retain
-        retain: true
+        existingClaim: media-plex
 
     podSecurityContext:
       runAsUser: 1027
