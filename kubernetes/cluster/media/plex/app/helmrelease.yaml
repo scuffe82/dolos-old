@@ -34,7 +34,7 @@ spec:
             port: 32400
 
     env:
-      PLEX_CLAIM: "claim-ZQG-z54JWQisYyvUmhBf"
+      PLEX_CLAIM: "claim-2SQAgS2MGrQo2EHiwadr"
 
 #    ingress:
 #      main:
