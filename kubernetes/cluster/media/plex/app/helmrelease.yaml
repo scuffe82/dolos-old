@@ -17,6 +17,7 @@ spec:
   interval: 30m
   values:
     controller:
+      type: statefulset
       annotations:
         reloader.stakater.com/auto: "true"
 
@@ -33,34 +34,32 @@ spec:
           http:
             port: 32400
 
-    env:
-      PLEX_CLAIM: "claim-2SQAgS2MGrQo2EHiwadr"
 
     persistence:
       tv:
-        #enabled: true
-        type: pvc
+        enabled: true
         mountPath: /tv
+        type: pvc
         existingClaim: media-tv
       movies:
-        #enabled: true
-        type: pvc
+        enabled: true
         mountPath: /movies
-        existingClaim: media-movies  
+        type: pvc
+        existingClaim: media-movies
+      config:
+        enabled: true
+        mountPath: /config
+        type: pvc
+        existingClaim: media-plex
       transcode:
         enabled: true
         type: emptyDir
-      config:
-        #enabled: true
-        type: pvc
-        mountPath: /config
-        existingClaim: media-plex
 
-    #podSecurityContext:
-    #  runAsUser: 1027
-    #  runAsGroup: 1027
-    #  fsGroup: 1027
-    #  fsGroupChangePolicy: "OnRootMismatch"
+    podSecurityContext:
+      #runAsUser: 568
+      #runAsGroup: 568
+      #fsGroup: 568
+      #fsGroupChangePolicy: "OnRootMismatch"
       supplementalGroups:
         - 44
         - 109
@@ -68,12 +67,3 @@ spec:
 
     nodeSelector:
       plex: "true"
-
-#    resources:
-#      requests:
-#        cpu: 100m
-#        gpu.intel.com/i915: 1
-#        memory: 9248M
-#      limits:
-#        gpu.intel.com/i915: 1
-#        memory: 9248M
