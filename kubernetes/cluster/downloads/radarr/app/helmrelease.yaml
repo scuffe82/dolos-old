@@ -50,7 +50,7 @@ spec:
         annotations:
           traefik.ingress.kubernetes.io/router.entrypoints: web
         hosts:
-          - host: "dolos-radarr.spenceops.com"
+          - host: "radarr.spenceops.com"
             paths:
               - path: /
         

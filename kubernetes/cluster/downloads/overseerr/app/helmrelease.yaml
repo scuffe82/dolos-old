@@ -50,7 +50,7 @@ spec:
         annotations:
           traefik.ingress.kubernetes.io/router.entrypoints: web
         hosts:
-          - host: "dolos-overseerr.spenceops.com"
+          - host: "overseerr.spenceops.com"
             paths:
               - path: /
 
