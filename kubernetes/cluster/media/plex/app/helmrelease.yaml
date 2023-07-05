@@ -38,12 +38,12 @@ spec:
 
     persistence:
       tv:
-        enabled: true
+        #enabled: true
         type: pvc
         mountPath: /tv
         existingClaim: media-tv
       movies:
-        enabled: true
+        #enabled: true
         type: pvc
         mountPath: /movies
         existingClaim: media-movies  
@@ -51,7 +51,7 @@ spec:
         enabled: true
         type: emptyDir
       config:
-        enabled: true
+        #enabled: true
         type: pvc
         mountPath: /config
         existingClaim: media-plex
