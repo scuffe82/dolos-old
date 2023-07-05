@@ -14,7 +14,7 @@ spec:
     kind: GitRepository
     name: dolos
   wait: true
-  interval: 31m
+  interval: 3m
   timeout: 30m
   decryption:
     provider: sops
