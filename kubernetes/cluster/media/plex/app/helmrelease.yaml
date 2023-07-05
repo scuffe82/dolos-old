@@ -56,11 +56,11 @@ spec:
         mountPath: /config
         existingClaim: media-plex
 
-    podSecurityContext:
-      runAsUser: 1027
-      runAsGroup: 1027
-      fsGroup: 1027
-      fsGroupChangePolicy: "OnRootMismatch"
+    #podSecurityContext:
+    #  runAsUser: 1027
+    #  runAsGroup: 1027
+    #  fsGroup: 1027
+    #  fsGroupChangePolicy: "OnRootMismatch"
       supplementalGroups:
         - 44
         - 109
