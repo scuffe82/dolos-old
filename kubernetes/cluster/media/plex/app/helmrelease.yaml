@@ -56,14 +56,14 @@ spec:
         enabled: true
         type: emptyDir
 
-    podSecurityContext:
-      runAsUser: 1027
-      runAsGroup: 65536
-      fsGroup: 1027
-      fsGroupChangePolicy: "OnRootMismatch"
-      supplementalGroups:
-        - 44
-        - 109
+    #podSecurityContext:
+    #  runAsUser: 1027
+    #  runAsGroup: 65536
+    #  fsGroup: 1027
+    #  fsGroupChangePolicy: "OnRootMismatch"
+    #  supplementalGroups:
+    #    - 44
+    #    - 109
 
     nodeSelector:
       plex: "true"
