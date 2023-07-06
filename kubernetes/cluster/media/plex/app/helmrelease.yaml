@@ -34,7 +34,7 @@ spec:
             port: 32400
 
     env:
-      PLEX_CLAIM: claim-GqNymXW5bp8r6ZptYuxt
+      PLEX_CLAIM: claim-f6uFeemA-bECyEtqLDyX
       CHANGE_CONFIG_DIR_OWNERSHIP: 'false'
       #PLEX_UID: '1027'
       #PLEX_GID: '65536'
