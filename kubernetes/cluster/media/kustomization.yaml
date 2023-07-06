@@ -4,5 +4,5 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - storagevolumes/deployment.yaml
-  - plex/deployment.yaml
+ # - plex/deployment.yaml
  # - tautulli/deployment.yaml
