@@ -4,3 +4,4 @@ resources:
   - ./namespace.yaml
   - metrics-server/deployment.yaml
   - reloader/deployment.yaml
+  - intel-gpu-plugin/deployment.yaml
