@@ -33,6 +33,8 @@ spec:
           http:
             port: 32400
 
+    env:
+      PLEX_CLAIM: claim-snPUuswuMB8hPooWiAZ7
 
     persistence:
       tv:
