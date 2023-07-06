@@ -35,6 +35,11 @@ spec:
 
     env:
       PLEX_CLAIM: claim-GqNymXW5bp8r6ZptYuxt
+      CHANGE_CONFIG_DIR_OWNERSHIP: 'false'
+      PLEX_UID: '1027'
+      PLEX_GID: '65536'
+      TZ: 'America/Denver'
+      ADVERTISE_IP: 'http://10.0.1.200:32400'
 
     persistence:
       tv:
@@ -56,14 +61,14 @@ spec:
         enabled: true
         type: emptyDir
 
-    #podSecurityContext:
-    #  runAsUser: 1027
-    #  runAsGroup: 65536
-    #  fsGroup: 1027
-    #  fsGroupChangePolicy: "OnRootMismatch"
-    #  supplementalGroups:
-    #    - 44
-    #    - 109
+    podSecurityContext:
+      runAsUser: 1027
+      runAsGroup: 65536
+      fsGroup: 1027
+      fsGroupChangePolicy: "OnRootMismatch"
+      supplementalGroups:
+        - 44
+        - 109
 
     nodeSelector:
       plex: "true"
