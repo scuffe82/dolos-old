@@ -6,6 +6,7 @@ resources:
   - ./bitnami.yaml
   - ./bjw-s.yaml
   - ./external-dns.yaml
+  - ./intel.yaml
   - ./jetstack.yaml
   - ./kube-prometheus.yaml
   - ./kubernetes-dashboard.yaml
