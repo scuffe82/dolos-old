@@ -10,6 +10,7 @@ resources:
   - ./jetstack.yaml
   - ./kube-prometheus.yaml
   - ./kubernetes-dashboard.yaml
+  - ./kubernetes-sigs-nfd.yaml
   - ./metallb.yaml
   - ./metrics-server.yaml
   - ./nfs-subdir.yaml
