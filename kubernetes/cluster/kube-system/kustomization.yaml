@@ -6,4 +6,4 @@ resources:
   - reloader/deployment.yaml
   - node-feature-discovery/deployment.yaml
   - intel-device-operator/deployment.yaml
- # - intel-gpu-plugin/deployment.yaml
+  - intel-gpu-plugin/deployment.yaml
