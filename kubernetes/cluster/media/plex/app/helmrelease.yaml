@@ -34,7 +34,7 @@ spec:
             port: 32400
 
     env:
-      PLEX_CLAIM: claim-ZqNxkcXz3VSyVt1isQxR
+      PLEX_CLAIM: claim-xhTdS87psSQjZTxUAJ9u
 
     persistence:
       tv:
