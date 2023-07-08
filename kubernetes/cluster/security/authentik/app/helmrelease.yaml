@@ -61,4 +61,7 @@ spec:
           paths:
             - path: /outpost.goauthentik.io/
               pathType: Prefix
-      #tls: []
+      tls:
+          - hosts:
+            - auth.spenceops.com
+            secretName: authentik-tls
