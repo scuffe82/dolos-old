@@ -64,4 +64,5 @@ spec:
       tls:
           - hosts:
             - auth.spenceops.com
-            secretName: authentik-tls
+            secretName: wc-domain-production-tls
+            namespace: networking
