@@ -7,3 +7,4 @@ resources:
   - node-feature-discovery/deployment.yaml
   - intel-device-operator/deployment.yaml
   - intel-gpu-plugin/deployment.yaml
+  - reflector/deployment.yaml

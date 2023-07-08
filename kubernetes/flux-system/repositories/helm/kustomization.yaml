@@ -5,6 +5,8 @@ resources:
   - ./authentik.yaml
   - ./bitnami.yaml
   - ./bjw-s.yaml
+  - ./dysnix.yaml
+  - ./emberstack.yaml
   - ./external-dns.yaml
   - ./intel.yaml
   - ./jetstack.yaml
