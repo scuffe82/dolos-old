@@ -25,3 +25,30 @@ spec:
         name: cluster-settings
       - kind: Secret
         name: cluster-secrets
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: authentik-middleware
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: traefik
+  path: ./kubernetes/cluster/security/authentik/config
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: dolos
+  interval: 30m
+  retryInterval: 1m
+  timeout: 3m
+  decryption:
+    provider: sops
+    secretRef:
+      name: sops-age
+  postBuild:
+    substituteFrom:
+      - kind: ConfigMap
+        name: cluster-settings
+      - kind: Secret
+        name: cluster-secrets
