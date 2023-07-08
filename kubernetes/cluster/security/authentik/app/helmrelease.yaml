@@ -21,35 +21,44 @@ spec:
     remediation:
       retries: 3
   values:
-    authentik:
-      log_level: info
-      secret_key: "${SECRET_AUTHENTIK_KEY}"
-      postgresql:
-        password: "${SECRET_AUTHENTIK_POSTGRES_PASS}"
-
+    image:
+      repository: ghcr.io/goauthentik/server
+      pullPolicy: IfNotPresent
+    deployment:
+      kind: Deployment
+      replicas: 1
     service:
       enabled: true
       type: LoadBalancer
       spec:
         loadBalancerIP: 10.0.1.101
         externalTrafficPolicy: Local
+    authentik:
+      secret_key: "${SECRET_AUTHENTIK_KEY}"
+      error_reporting:
+          enabled: true
+      postgresql:
+        password: ${SECRET_AUTHENTIK_POSTGRES_PASS}
 
     postgresql:
       enabled: true
-      postgresqlPassword: "${SECRET_AUTHENTIK_POSTGRES_PASS}"
-      persistence:
-        enabled: true
-        storageClass: synology-csi-retain
-        size: 10Gi
-        accessModes:
-          - ReadWriteOnce
-      image:
-        tag: 11.19.0-debian-11-r4
+      postgresqlPassword: ${SECRET_AUTHENTIK_POSTGRES_PASS}
+
     redis:
       enabled: true
-      persistence:
-        enabled: true
-        storageClass: synology-csi-retain
-        size: 10Gi
-        accessModes:
-          - ReadWriteOnce
+
+    ingress:
+      enabled: true
+      ingressClassName: "traefik"
+      annotations:
+        traefik.ingress.kubernetes.io/router.entrypoints: websecure
+      hosts:
+        - host: auth.spenceops.com
+          paths:
+            - path: "/"
+              pathType: Prefix
+        - host: "*.spenceops.com"
+          paths:
+            - path: /outpost.goauthentik.io/
+              pathType: Prefix
+      #tls: []
