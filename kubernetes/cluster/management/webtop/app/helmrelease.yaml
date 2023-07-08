@@ -55,3 +55,17 @@ spec:
           - host: "desktop.spenceops.com"
             paths:
               - path: /
+      external:
+        enabled: true
+        ingressClassName: "traefik"
+        annotations:
+          traefik.ingress.kubernetes.io/router.entrypoints: websecure
+          traefik.ingress.kubernetes.io/router.middlewares: security-authentik@kubernetescrd
+        hosts:
+          - host: "desktop.spenceops.com"
+            paths:
+              - path: /
+        tls:
+          - hosts:
+            - desktop.spenceops.com
+            secretName: desktop-tls
