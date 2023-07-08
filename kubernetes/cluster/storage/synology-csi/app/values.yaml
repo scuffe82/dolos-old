@@ -11,3 +11,4 @@ storageClasses:
     parameters:
       fsType: ext4
     reclaimPolicy: Retain
+    isDefault: true
