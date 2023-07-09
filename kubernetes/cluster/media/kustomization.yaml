@@ -6,3 +6,4 @@ resources:
   - storagevolumes/deployment.yaml
   - plex/deployment.yaml
   - tautulli/deployment.yaml
+  - plex-dev/deployment.yaml
