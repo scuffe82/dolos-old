@@ -22,7 +22,7 @@ spec:
 
     image:
       repository: lscr.io/linuxserver/webtop
-      tag: latest
+      tag: ubuntu-xfce
 
     service:
       main:
