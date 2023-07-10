@@ -52,6 +52,6 @@ spec:
         annotations:
           traefik.ingress.kubernetes.io/router.entrypoints: web
         hosts:
-          - host: "webtop.spenceops.com"
+          - host: "desktop.spenceops.com"
             paths:
               - path: /
