@@ -1,0 +1,52 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: authentik
+  namespace: security
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: authentik
+      sourceRef:
+        kind: HelmRepository
+        name: authentik
+        namespace: flux-system
+      interval: 5m
+  dependsOn:
+    - name: cert-manager
+      namespace: secuirty
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
+  values:
+    authentik:
+      log_level: info
+      secret_key: "${SECRET_AUTHENTIK_KEY}"
+      postgresql:
+        password: "${SECRET_AUTHENTIK_POSTGRES_PASS}"
+
+    service:
+      enabled: true
+      type: LoadBalancer
+      spec:
+        loadBalancerIP: 10.0.1.101
+        externalTrafficPolicy: Local
+
+    postgresql:
+      enabled: true
+      postgresqlPassword: "${SECRET_AUTHENTIK_POSTGRES_PASS}"
+      persistence:
+        enabled: true
+        storageClass: synology-csi-retain
+        size: 10Gi
+        accessModes:
+          - ReadWriteOnce
+      image:
+        tag: 11.19.0-debian-11-r4
+    redis:
+      enabled: true
