@@ -14,9 +14,6 @@ spec:
         name: authentik
         namespace: flux-system
       interval: 5m
-  dependsOn:
-    - name: cert-manager
-      namespace: secuirty
   install:
     remediation:
       retries: 3
