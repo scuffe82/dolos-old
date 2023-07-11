@@ -47,3 +47,9 @@ spec:
         tag: 11.19.0-debian-11-r4
     redis:
       enabled: true
+      persistence:
+        enabled: true
+        storageClass: synology-csi-retain
+        size: 10Gi
+        accessModes:
+          - ReadWriteOnce
