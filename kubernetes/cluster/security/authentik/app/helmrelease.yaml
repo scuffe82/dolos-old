@@ -64,3 +64,4 @@ spec:
       tls:
           - hosts:
             - auth.spenceops.com
+            secretName: spenceops-com-tls
