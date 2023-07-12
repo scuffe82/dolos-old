@@ -53,6 +53,19 @@ spec:
           - host: "radarr.spenceops.com"
             paths:
               - path: /
+      external:
+        enabled: true
+        ingressClassName: "traefik"
+        annotations:
+          traefik.ingress.kubernetes.io/router.entrypoints: websecure
+          traefik.ingress.kubernetes.io/router.middlewares: security-middleware-authentik@kubernetescrd
+        hosts:
+          - host: "radarr.spenceops.com"
+            paths:
+              - path: /
+        tls:
+          - hosts:
+            - radarr.spenceops.com
         
     persistence:
       postprocess:

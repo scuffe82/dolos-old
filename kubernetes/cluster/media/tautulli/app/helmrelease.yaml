@@ -36,6 +36,19 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
+      external:
+        enabled: true
+        ingressClassName: "traefik"
+        annotations:
+          traefik.ingress.kubernetes.io/router.entrypoints: websecure
+          traefik.ingress.kubernetes.io/router.middlewares: security-middleware-authentik@kubernetescrd
+        hosts:
+          - host: "tautulli.spenceops.com"
+            paths:
+              - path: /
+        tls:
+          - hosts:
+            - tautulli.spenceops.com
 
     podSecurityContext:
       runAsUser: 1027

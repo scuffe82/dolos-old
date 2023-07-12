@@ -59,6 +59,19 @@ spec:
           - host: "sabnzbd.spenceops.com"
             paths:
               - path: /
+      external:
+        enabled: true
+        ingressClassName: "traefik"
+        annotations:
+          traefik.ingress.kubernetes.io/router.entrypoints: websecure
+          traefik.ingress.kubernetes.io/router.middlewares: security-middleware-authentik@kubernetescrd
+        hosts:
+          - host: "sabnzbd.spenceops.com"
+            paths:
+              - path: /
+        tls:
+          - hosts:
+            - sabnzbd.spenceops.com
         
     persistence:
       downloads:
