@@ -307,7 +307,7 @@ tlsOptions: {}
 tlsStore:
   default:
     defaultCertificate:
-      secretName: spenceops-tls
+      secretName: spenceops-com-tls
 
 service:
   enabled: true
