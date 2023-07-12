@@ -24,9 +24,6 @@ spec:
     cleanupOnFail: true
   uninstall:
     keepHistory: false
-  dependsOn:
-    - name: cert-manager-issuers
-      namespace: security
   values:
     resources:
       - apiVersion: cert-manager.io/v1
