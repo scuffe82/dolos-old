@@ -24,9 +24,6 @@ spec:
     cleanupOnFail: true
   uninstall:
     keepHistory: false
-  dependsOn:
-    - name: traefik
-      namespace: networking
   values:
     resources:
       - apiVersion: traefik.containo.us/v1alpha1
