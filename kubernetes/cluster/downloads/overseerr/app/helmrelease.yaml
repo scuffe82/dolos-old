@@ -22,8 +22,8 @@ spec:
         reloader.stakater.com/auto: "true"
 
     image:
-      repository: sctx/overseerr
-      tag: latest
+      repository: ghcr.io/sct/overseerr
+      tag: 1.33.2
 
     podSecurityContext:
       runAsUser: 1027
@@ -72,10 +72,9 @@ spec:
         enabled: true
         mountPath: /app/config
         accessMode: ReadWriteOnce
-        size: 10Gi
-        storageClass: synology-csi-retain
-        retain: true   
-
+        existingClaim: downloads-overseerr
+        type: pvc
+        
 #    resources:
 #      requests:
 #        cpu: 20m

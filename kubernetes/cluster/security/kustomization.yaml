@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - ./namespace.yaml
   - cert-manager/deployment.yaml
-  - authentik/deployment.yaml
+ # - authentik/deployment.yaml
