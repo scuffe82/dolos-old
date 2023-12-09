@@ -71,7 +71,6 @@ spec:
       config:
         enabled: true
         mountPath: /app/config
-        accessMode: ReadWriteOnce
         existingClaim: downloads-overseerr
         type: pvc
         
